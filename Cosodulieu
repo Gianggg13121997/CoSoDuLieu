@@ -1,0 +1,29 @@
+create database my_store;
+use my_store;
+create table customer(
+id_customer int  primary key, # key chinh
+name varchar(20) not null
+);
+create table Orders( # tao bang
+id_order int primary key,
+date_order date ,
+id_customer int ,
+foreign key (id_customer) references customer(id_customer) #key phu ket noi 2 bang
+);
+
+INSERT INTO customer (id_customer, name) #them du lieu vao bang
+VALUES (1, 'giang'), (2, 'giang1');
+
+INSERT INTO Orders ( id_order,date_order,id_customer)
+VALUES (1,'2024-11-11',1),
+(2,'2024-12-12',2);
+select* from Orders;
+select* from customer; # truy van du lieu tu bang
+SHOW TABLES; # hien thi cac bang
+  DROP tables if exists Orders; # xoa bang
+  alter table customer  # sua bang 
+  add email varchar(20); # them cot trong bang
+  update customer # sua thong tin bang
+  set name = 'giang dep trai'
+  where id_customer = 1;
+  
